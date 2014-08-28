@@ -1,7 +1,11 @@
 #hello_world
-  Hello { model.name }
-  .this_is_an_example{"rv-text" => "model.name"}
-  .this_is_an_example_of_binding{"rv-name" => "model.name"}
+  Hello { person.name }
+  .this_is_an_example{"rv-text" => "person.name"}
+  .this_is_an_example_of_binding{"rv-foo" => "person.name"}
     color
-  .this_is_two_way_binding{"rv-on-click" => "model.change"}
+  .this_is_two_way_binding{"rv-on-click" => "person.change"}
     click me to change name and change color
+  %label
+    enter text here to be formatted
+  %input{"rv-input" => "person.text"}
+  .this_is_formatting_example{"rv-text" => "person.showText < text"}

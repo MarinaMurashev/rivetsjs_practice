@@ -1,24 +1,36 @@
 $ ->
-  model =
-    name: "Patrick"
-    change: ->
-      console.log(this)
-      if model.name == "Patrick"
-        model.name = "Marina"
+
+  class Person
+    constructor: (@name, @text_to_be_formatted) ->
+      @name = "Patrick"
+      @text_to_be_formatted = "text_to_be_shown"
+
+    change: (event, context) ->
+      if @name == "Patrick"
+        @name = "Marina"
       else
-        model.name = "Patrick"
+        @name = "Patrick"
 
-  target = $("#hello_world")
+    showText: ->
+      "#{@text} is the text"
 
-  rivets.binders.name = (target, value) ->
-    console.log("BINDING NAME")
-    if model.name == "Marina"
+  specific_person = new Person()
+
+  rivets.binders.foo = (target, value) ->
+    if @model.name == "Marina"
       target.style.color = "blue"
     else
       target.style.color = "red"
 
-  rivets.bind target, model: model
+  rivets.binders.input =
+    publishes: true
+    routine: rivets.binders.value.routine
+    bind: (target) ->
+      target.addEventListener "input", @publish
+
+    unbind: (target) ->
+      target.removeEventListener "input", @publish
+
+  target = $("#hello_world")
+  rivets.bind target, person: specific_person
   target.show()
-
-  model.name = "Marina"
-
