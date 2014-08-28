@@ -22,14 +22,8 @@ $ ->
     else
       target.style.color = "red"
 
-  rivets.binders.input =
-    publishes: true
-    routine: rivets.binders.value.routine
-    bind: (target) ->
-      target.addEventListener "input", @publish
-
-    unbind: (target) ->
-      target.removeEventListener "input", @publish
+  rivets.binders.input = (target, value) ->
+    target.addEventListener "input", @publish
 
   target = $("#hello_world")
   rivets.bind target, person: specific_person
