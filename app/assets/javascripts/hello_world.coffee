@@ -6,10 +6,10 @@ $ ->
       @text_to_be_formatted = "text_to_be_shown"
 
     change: (event, context) ->
-      if @name == "Patrick"
-        @name = "Marina"
+      if context.person.name == "Patrick"
+        context.person.name = "Marina"
       else
-        @name = "Patrick"
+        context.person.name = "Patrick"
 
     showText: ->
       "#{@text} is the text"
