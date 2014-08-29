@@ -18,7 +18,7 @@ $ ->
     "#{value || ""} is my text"
 
   rivets.binders.foo = (target, value) ->
-    if @model.name == "Marina"
+    if value == "Marina"
       target.style.color = "blue"
     else
       target.style.color = "red"
