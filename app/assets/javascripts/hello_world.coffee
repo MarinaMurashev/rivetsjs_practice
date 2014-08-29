@@ -5,13 +5,15 @@ $ ->
     text_to_be_formatted: "text_to_be_shown"
 
     change: (event, context) ->
-      if context.person.name == "Patrick"
-        context.person.name = "Marina"
+      if @name == "Patrick"
+        @name = "Marina"
       else
-        context.person.name = "Patrick"
+        @name = "Patrick"
 
     showText: ->
       "#{@text} is the text"
+
+  _.bindAll(specific_person, 'change', 'showText')
 
   rivets.binders.foo = (target, value) ->
     if @model.name == "Marina"

@@ -13,4 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require rivets.min
+//= require underscore.min
 //= require_tree .
