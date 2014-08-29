@@ -14,6 +14,9 @@ $ ->
 
   _.bindAll(specific_person, 'change', 'showText')
 
+  rivets.formatters.my_text = (value) ->
+    "#{value || ""} is my text"
+
   rivets.binders.foo = (target, value) ->
     if @model.name == "Marina"
       target.style.color = "blue"
