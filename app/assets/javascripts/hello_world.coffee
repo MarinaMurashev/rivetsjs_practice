@@ -2,7 +2,6 @@ $ ->
 
   specific_person =
     name: "Patrick"
-    text_to_be_formatted: "text_to_be_shown"
 
     change: (event, context) ->
       if @name == "Patrick"
@@ -10,8 +9,8 @@ $ ->
       else
         @name = "Patrick"
 
-    showText: ->
-      "#{@text} is the text"
+    showText: (event) ->
+      @text = event.currentTarget.value
 
   _.bindAll(specific_person, 'change', 'showText')
 
@@ -20,9 +19,6 @@ $ ->
       target.style.color = "blue"
     else
       target.style.color = "red"
-
-  rivets.binders.input = (target, value) ->
-    target.addEventListener "input", @publish
 
   target = $("#hello_world")
   rivets.bind target, person: specific_person
