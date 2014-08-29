@@ -1,9 +1,8 @@
 $ ->
 
-  class Person
-    constructor: (@name, @text_to_be_formatted) ->
-      @name = "Patrick"
-      @text_to_be_formatted = "text_to_be_shown"
+  specific_person =
+    name: "Patrick"
+    text_to_be_formatted: "text_to_be_shown"
 
     change: (event, context) ->
       if context.person.name == "Patrick"
@@ -13,8 +12,6 @@ $ ->
 
     showText: ->
       "#{@text} is the text"
-
-  specific_person = new Person()
 
   rivets.binders.foo = (target, value) ->
     if @model.name == "Marina"
