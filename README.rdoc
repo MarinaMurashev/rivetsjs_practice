@@ -1,4 +1,4 @@
-This is an example of using Rivets Js: http://rivetsjs.com
+This is an example of using Rivets Js (http://rivetsjs.com) in a Rails app.
 Specifically, we are using rivets version 0.6.9
 
 This was worked on pairing with PTurley (https://github.com/pturley)
